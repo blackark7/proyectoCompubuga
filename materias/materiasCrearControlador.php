@@ -1,11 +1,16 @@
 <?php 
+include_once 'materiasModelo.php';
+$materiasModelo = new materiasModelo();
 
 $materia = filter_input(INPUT_POST, 'materia');
 $area = filter_input(INPUT_POST, 'area');
 
 
- echo "Materia: $materia <br>";
-echo "Area: $area <br>";
+
+
+$materiasModelo->insertar($materia,$area);
+    header("Location: materiasAdministrarVista.php");
+
  
 
  ?>
