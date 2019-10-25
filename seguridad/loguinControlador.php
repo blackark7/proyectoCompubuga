@@ -12,6 +12,7 @@
         if ($fila != NULL) {
             $encontro = true;
             $_SESSION['usuario'] = $fila['id'];
+            $_SESSION['nombreUsuario'] = $fila['user'];
         }
     }
     if ($encontro){
