@@ -1,6 +1,6 @@
 <?php 
-include_once 'carreraModelo.php';
-$carreraModelo = new carreraModelo();
+include_once 'carrerasModelo.php';
+$carreraModelo = new carrerasModelo();
 
 $carrera = filter_input(INPUT_POST, 'carrera');
 

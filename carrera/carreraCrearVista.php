@@ -1,3 +1,7 @@
+<?php
+    include_once "../componets/enrutamientoSeguridad.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

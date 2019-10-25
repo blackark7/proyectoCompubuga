@@ -1,1 +1,3 @@
-  <?php header("Location: docente/docenteAdministrarVista.php"); ?>
+  <?php
+      header("Location: seguridad/loguinVista.php");
+  ?>
