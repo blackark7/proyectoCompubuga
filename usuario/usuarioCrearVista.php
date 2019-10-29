@@ -50,7 +50,7 @@
                         <h6 class="m-0 font-weight-bold text-primary">Crear Usuario</h6>
                     </div>
                     <div class="card-body">
-                        <form action="usuarioCrearControlador.php" method="post">
+                        <form action="usuarioCrearControlador.php" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="">Tipo</label>
                                 <select class="form-control" name="tipo">
@@ -77,7 +77,7 @@
 
                             <div class="form-group">
                                 <label for="">Foto</label>
-                                <input type="file" id="">
+                                <input type="file" name="foto" id="" required>
                                 <p class="help-block">Por favor suba una foto de perfil</p>
                             </div>
 
