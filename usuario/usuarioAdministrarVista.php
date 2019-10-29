@@ -54,7 +54,7 @@ include_once "../componets/enrutamientoSeguridad.php";
                                                 <th>Imagen</th>
                                                 <th>Nombre Usuario</th>
                                                 <th>Acciones</th>
-
+                                       
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -78,7 +78,7 @@ include_once "../componets/enrutamientoSeguridad.php";
                                                     $contador++;
 
                                                     echo '<tr>
-                                                        <td>' . $contador . '</td>
+                                                        <td> <img src="'.$fila['foto'].'" class="rounded float-left" width="80" height="80" ></td>
                                             <td>' . $fila['user'] . '</td>                
                 
                 <td>
