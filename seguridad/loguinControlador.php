@@ -13,6 +13,7 @@
             $encontro = true;
             $_SESSION['usuario'] = $fila['id'];
             $_SESSION['nombreUsuario'] = $fila['user'];
+            $_SESSION['foto'] = $fila['foto'];
         }
     }
     if ($encontro){
