@@ -10,6 +10,12 @@ class usuarioModelo {
         $consulta = "INSERT INTO `usuarios` (`id`, `user`, `password`, `tipo`, `foto`) VALUES (NULL, '$usuario', '$pass', '$tipo','$foto');";
         $query = mysqli_query($link, $consulta);
     }
+    function eliminar($id) {
+       
+        global $link;
+        $consulta = "DELETE FROM `usuarios` WHERE `usuarios`.`id` = $id";
+        $query = mysqli_query($link, $consulta);
+    }
 
     function mostrarTodos() {
         global $link;
