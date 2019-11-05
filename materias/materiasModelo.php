@@ -7,6 +7,14 @@ include_once '../conexion.php';
           $consulta = "INSERT INTO `materia` (`id`, `nombre`, `carrera`) VALUES (NULL, '$nombre', '$carrera');";
           $query = mysqli_query($link, $consulta);
       }
+      
+       function eliminar($id) {
+       
+        global $link;
+        $consulta = "DELETE FROM `materia` WHERE `materia`.`id` = $id";
+        $query = mysqli_query($link, $consulta);
+    }
+      
         function mostrarTodos(){
             global $link;
             $consulta = "SELECT * FROM `materia`";
