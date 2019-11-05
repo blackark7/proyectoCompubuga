@@ -21,7 +21,7 @@ if (!$move) {
 } else {
 include_once "docenteModelo.php";
 $docenteModelo = new docenteModelo();
-$docenteModelo->insertar($nombre,$carrera,$telefono,$documento,$fecha,$direccion);
+$docenteModelo->insertar($nombre,$carrera,$telefono,$documento,$fecha,$direccion,$destino);
 
 }
 
