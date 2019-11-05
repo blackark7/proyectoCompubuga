@@ -8,6 +8,15 @@ include_once '../conexion.php';
           $consulta = "INSERT INTO `docentes` (`id`, `nombre`, `carrera`, `telefono`, `documento`, `fecha`, `direccion`) VALUES (NULL, '$nombre', '$carrera', '$telefono', '$documento', '$fecha', '$direccion');";
           $query = mysqli_query($link, $consulta);
       }
+      
+       function eliminar($id) {
+       
+        global $link;
+        $consulta = "DELETE FROM `docentes` WHERE `docentes`.`id` = $id";
+        $query = mysqli_query($link, $consulta);
+    }
+      
+      
         function mostrarTodos(){
             global $link;
             $consulta = "SELECT * FROM `docentes`";
