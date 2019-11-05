@@ -83,9 +83,9 @@ include_once "../componets/enrutamientoSeguridad.php";
                                             <td>' . $fila['nombre'] . '</td>                  
               
                   <td>
-                    <a href="#" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Eliminar">
-                      <i class="fas fa-trash"></i>
-                    </a>
+                     <a href="#" onclick="eliminarModal(' . $fila['id'] . ')" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Eliminar">
+                        <i class="fas fa-trash"></i>
+                          </a>
                     <a href="#" class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Modificar">
                       <i class="fas fa-edit"></i>
                     </a>    
@@ -147,6 +147,31 @@ include_once "../componets/enrutamientoSeguridad.php";
                 </div>
             </div>
         </div>
+        
+        <!--        //MODAL DE ELIMINAR-->
+        <div class="modal fade" id="mEliminar" tabindex="-1" role="dialog" aria-labelledby="mEliminar">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+                        <!--<h4 class="modal-title" id="myModalLabel">Eliminar</h4>-->
+                    </div>
+                    <form method="post" action="carreraEliminarControlador.php" >
+                        <input type="hidden" name="id" id="idUsuario">
+                        <div class="modal-body">
+                            <h3>¿Esta seguro que desea eliminar el usuario?</h3>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">SI</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
 
         <!-- Bootstrap core JavaScript-->
         <script src="../vendor/jquery/jquery.min.js"></script>
@@ -162,13 +187,14 @@ include_once "../componets/enrutamientoSeguridad.php";
         <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
         <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="../js/demo/datatables-demo.js"></script>
+           <!--        //MODAL DE ELIMINAR-->
         <script type="text/javascript">
-            $(function () {
-                $('[data-toggle="tooltip"]').tooltip()
-            })
-        </script>  
+            function eliminarModal(v) {
+                var valor = v;
+                document.getElementById('idUsuario').value = v;
+                $('#mEliminar').modal('show')
+            }
+        </script> 
 
 
 
