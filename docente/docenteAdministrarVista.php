@@ -141,7 +141,7 @@ include_once "../componets/enrutamientoSeguridad.php";
         <!-- Logout Modal-->
 
 
-        <!-- Modal -->
+        <!-- Modal ASIGNAR DISPONIBILIDAD -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog  modal-xl" role="document">
@@ -218,7 +218,7 @@ include_once "../componets/enrutamientoSeguridad.php";
             </div>
         </div>
 
-        <!-- Modal -->
+        <!-- Modal ASIGNAR MATERIA-->
         <div class="modal fade" id="modalAsignar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog  modal-xl" role="document">
@@ -336,9 +336,9 @@ include_once "../componets/enrutamientoSeguridad.php";
                 </div>
             </div>
         </div>
-        
-<!--        //MODAL DE ELIMINAR-->
-         <div class="modal fade" id="mEliminar" tabindex="-1" role="dialog" aria-labelledby="mEliminar">
+
+        <!--        //MODAL DE ELIMINAR-->
+        <div class="modal fade" id="mEliminar" tabindex="-1" role="dialog" aria-labelledby="mEliminar">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -352,8 +352,8 @@ include_once "../componets/enrutamientoSeguridad.php";
                             <h3>¿Esta seguro que desea eliminar el usuario?</h3>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
                             <button type="submit" class="btn btn-primary">SI</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>                            
                         </div>
                     </form>
                 </div>
@@ -388,7 +388,7 @@ include_once "../componets/enrutamientoSeguridad.php";
                 $('#myInput').trigger('focus')
             });
         </script>
-        
+
         <!--        //MODAL DE ELIMINAR-->
         <script type="text/javascript">
             function eliminarModal(v) {
