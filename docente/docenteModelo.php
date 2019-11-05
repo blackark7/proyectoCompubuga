@@ -3,9 +3,9 @@
 include_once '../conexion.php';
     class docenteModelo
     {
-      function insertar($nombre,$carrera, $telefono, $documento, $fecha, $direccion){
+      function insertar($nombre,$carrera, $telefono, $documento, $fecha, $direccion,$foto){
           global $link;
-          $consulta = "INSERT INTO `docentes` (`id`, `nombre`, `carrera`, `telefono`, `documento`, `fecha`, `direccion`) VALUES (NULL, '$nombre', '$carrera', '$telefono', '$documento', '$fecha', '$direccion');";
+          $consulta = "INSERT INTO `docentes` (`id`, `nombre`, `carrera`, `telefono`, `documento`, `fecha`, `direccion`, `foto`) VALUES (NULL, '$nombre', '$carrera', '$telefono', '$documento', '$fecha', '$direccion','$foto');";
           $query = mysqli_query($link, $consulta);
       }
       
