@@ -161,8 +161,8 @@ include_once "../componets/enrutamientoSeguridad.php";
                             <h3>¿Esta seguro que desea eliminar el usuario?</h3>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
                             <button type="submit" class="btn btn-primary">SI</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>                            
                         </div>
                     </form>
                 </div>
