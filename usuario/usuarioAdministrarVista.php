@@ -82,7 +82,7 @@ include_once "../componets/enrutamientoSeguridad.php";
                                             <td>' . $fila['user'] . '</td>                
                 
                 <td>
-                <a onclick="eliminarModal(' . $fila['id'] . ')" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Eliminar">
+                <a href="#" onclick="eliminarModal(' . $fila['id'] . ')" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Eliminar">
                 <i class="fas fa-trash"></i>
                 </a>
                 <a href="#" class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Modificar">
@@ -169,7 +169,7 @@ include_once "../componets/enrutamientoSeguridad.php";
 
         <!-- Page level custom scripts -->
         <script src="../js/demo/datatables-demo.js"></script>
-        
+
         <script type="text/javascript">
             function eliminarModal(v) {
                 var valor = v;
