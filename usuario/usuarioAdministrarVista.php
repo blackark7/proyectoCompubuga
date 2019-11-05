@@ -127,7 +127,7 @@ include_once "../componets/enrutamientoSeguridad.php";
         </a>
 
 
-
+<!--        //MODAL DE ELIMINAR-->
         <div class="modal fade" id="mEliminar" tabindex="-1" role="dialog" aria-labelledby="mEliminar">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -170,6 +170,7 @@ include_once "../componets/enrutamientoSeguridad.php";
         <!-- Page level custom scripts -->
         <script src="../js/demo/datatables-demo.js"></script>
 
+        <!--        //MODAL DE ELIMINAR-->
         <script type="text/javascript">
             function eliminarModal(v) {
                 var valor = v;
