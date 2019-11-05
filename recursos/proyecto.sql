@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2019 a las 02:27:37
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 5.6.40
+-- Host: 127.0.0.1
+-- Generation Time: Nov 05, 2019 at 07:40 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `proyecto`
+-- Database: `proyecto`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `carrera`
+-- Table structure for table `carrera`
 --
 
 CREATE TABLE `carrera` (
@@ -33,17 +33,10 @@ CREATE TABLE `carrera` (
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
---
--- Volcado de datos para la tabla `carrera`
---
-
-INSERT INTO `carrera` (`id`, `nombre`) VALUES
-(1, 'perrea');
-
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `disponibilidad_docente`
+-- Table structure for table `disponibilidad_docente`
 --
 
 CREATE TABLE `disponibilidad_docente` (
@@ -56,7 +49,7 @@ CREATE TABLE `disponibilidad_docente` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `docentes`
+-- Table structure for table `docentes`
 --
 
 CREATE TABLE `docentes` (
@@ -64,23 +57,23 @@ CREATE TABLE `docentes` (
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `carrera` int(11) NOT NULL,
   `telefono` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `imagen` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `foto` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
   `documento` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
   `fecha` date NOT NULL,
   `direccion` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `docentes`
+-- Dumping data for table `docentes`
 --
 
-INSERT INTO `docentes` (`id`, `nombre`, `carrera`, `telefono`, `imagen`, `documento`, `fecha`, `direccion`) VALUES
-(1, 'lopez', 0, '314 570 4202', '', '1116260565', '2019-10-11', 'kr 7D #31c12');
+INSERT INTO `docentes` (`id`, `nombre`, `carrera`, `telefono`, `foto`, `documento`, `fecha`, `direccion`) VALUES
+(7, 'LOPEZ', 0, '3145704202', '../img/lopez.jpg', '1116260565', '2019-11-07', 'kr 7d 31c12');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `horario`
+-- Table structure for table `horario`
 --
 
 CREATE TABLE `horario` (
@@ -95,7 +88,7 @@ CREATE TABLE `horario` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `materia`
+-- Table structure for table `materia`
 --
 
 CREATE TABLE `materia` (
@@ -104,10 +97,17 @@ CREATE TABLE `materia` (
   `carrera` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Dumping data for table `materia`
+--
+
+INSERT INTO `materia` (`id`, `nombre`, `carrera`) VALUES
+(3, 'abc', 1);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -119,92 +119,93 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `user`, `password`, `foto`, `tipo`) VALUES
 (2, 'carlos ', 'dc599a9972fde3045dab59dbd1ae170b', '../img/descarga perro.jpg ', 1),
-(5, 'admin', '21232f297a57a5a743894a0e4a801fc3', '../img/images (6).jpg', 1);
+(5, 'admin', '21232f297a57a5a743894a0e4a801fc3', '../img/images (6).jpg', 1),
+(6, 'lopez', 'c5a1a98649a7874de0def093eb136262', '../img/lopez.jpg', 1);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `carrera`
+-- Indexes for table `carrera`
 --
 ALTER TABLE `carrera`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `disponibilidad_docente`
+-- Indexes for table `disponibilidad_docente`
 --
 ALTER TABLE `disponibilidad_docente`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `docentes`
+-- Indexes for table `docentes`
 --
 ALTER TABLE `docentes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `horario`
+-- Indexes for table `horario`
 --
 ALTER TABLE `horario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `materia`
+-- Indexes for table `materia`
 --
 ALTER TABLE `materia`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `carrera`
+-- AUTO_INCREMENT for table `carrera`
 --
 ALTER TABLE `carrera`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `disponibilidad_docente`
+-- AUTO_INCREMENT for table `disponibilidad_docente`
 --
 ALTER TABLE `disponibilidad_docente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `docentes`
+-- AUTO_INCREMENT for table `docentes`
 --
 ALTER TABLE `docentes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de la tabla `horario`
+-- AUTO_INCREMENT for table `horario`
 --
 ALTER TABLE `horario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `materia`
+-- AUTO_INCREMENT for table `materia`
 --
 ALTER TABLE `materia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
