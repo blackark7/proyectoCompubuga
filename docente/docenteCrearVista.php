@@ -62,10 +62,19 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Carrera</label>
-                                        <select class="form-control" name="area">
-                                            <option value="sistemas">Sistemas</option>
-                                            <option value="contabilidad">Contabilidad</option>
-                                            <option value="logistica">Logistica</option>
+                                        <select class="form-control" name="carrera" >
+                                           <?php
+                                            include_once '../carrera/carrerasModelo.php';
+                                            $carreraModelo = new carrerasModelo();
+                                            $result = $carreraModelo->mostrarTodos();
+                                            while ($fila = mysqli_fetch_array($result)) {
+
+                                                if ($fila != NULL) {
+                                                    
+                                                    echo '<option value="'.$fila['nombre'].'">'.$fila['nombre'].'</option>';
+                                                }
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
