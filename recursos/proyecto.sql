@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 05, 2019 at 07:40 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 08-11-2019 a las 02:29:18
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `proyecto`
+-- Base de datos: `proyecto`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carrera`
+-- Estructura de tabla para la tabla `carrera`
 --
 
 CREATE TABLE `carrera` (
@@ -33,10 +33,20 @@ CREATE TABLE `carrera` (
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `carrera`
+--
+
+INSERT INTO `carrera` (`id`, `nombre`) VALUES
+(3, 'sistemas'),
+(4, 'logistica'),
+(5, 'contabilidad'),
+(6, 'diseño grafico');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `disponibilidad_docente`
+-- Estructura de tabla para la tabla `disponibilidad_docente`
 --
 
 CREATE TABLE `disponibilidad_docente` (
@@ -49,13 +59,13 @@ CREATE TABLE `disponibilidad_docente` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `docentes`
+-- Estructura de tabla para la tabla `docentes`
 --
 
 CREATE TABLE `docentes` (
   `id` int(11) NOT NULL,
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `carrera` int(11) NOT NULL,
+  `carrera` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `foto` varchar(500) COLLATE utf8_spanish_ci NOT NULL,
   `documento` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
@@ -64,16 +74,16 @@ CREATE TABLE `docentes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `docentes`
+-- Volcado de datos para la tabla `docentes`
 --
 
 INSERT INTO `docentes` (`id`, `nombre`, `carrera`, `telefono`, `foto`, `documento`, `fecha`, `direccion`) VALUES
-(7, 'LOPEZ', 0, '3145704202', '../img/lopez.jpg', '1116260565', '2019-11-07', 'kr 7d 31c12');
+(10, 'Ximena Maria Morales', 'contabilidad', '314 570 4203', '../img/descarga perro.jpg', '123456', '1900-10-10', 'kr 7D #31c12');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `horario`
+-- Estructura de tabla para la tabla `horario`
 --
 
 CREATE TABLE `horario` (
@@ -88,7 +98,7 @@ CREATE TABLE `horario` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `materia`
+-- Estructura de tabla para la tabla `materia`
 --
 
 CREATE TABLE `materia` (
@@ -98,7 +108,7 @@ CREATE TABLE `materia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `materia`
+-- Volcado de datos para la tabla `materia`
 --
 
 INSERT INTO `materia` (`id`, `nombre`, `carrera`) VALUES
@@ -107,7 +117,7 @@ INSERT INTO `materia` (`id`, `nombre`, `carrera`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -119,7 +129,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `user`, `password`, `foto`, `tipo`) VALUES
@@ -128,81 +138,81 @@ INSERT INTO `usuarios` (`id`, `user`, `password`, `foto`, `tipo`) VALUES
 (6, 'lopez', 'c5a1a98649a7874de0def093eb136262', '../img/lopez.jpg', 1);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `carrera`
+-- Indices de la tabla `carrera`
 --
 ALTER TABLE `carrera`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `disponibilidad_docente`
+-- Indices de la tabla `disponibilidad_docente`
 --
 ALTER TABLE `disponibilidad_docente`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `docentes`
+-- Indices de la tabla `docentes`
 --
 ALTER TABLE `docentes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `horario`
+-- Indices de la tabla `horario`
 --
 ALTER TABLE `horario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `materia`
+-- Indices de la tabla `materia`
 --
 ALTER TABLE `materia`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `carrera`
+-- AUTO_INCREMENT de la tabla `carrera`
 --
 ALTER TABLE `carrera`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `disponibilidad_docente`
+-- AUTO_INCREMENT de la tabla `disponibilidad_docente`
 --
 ALTER TABLE `disponibilidad_docente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `docentes`
+-- AUTO_INCREMENT de la tabla `docentes`
 --
 ALTER TABLE `docentes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `horario`
+-- AUTO_INCREMENT de la tabla `horario`
 --
 ALTER TABLE `horario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `materia`
+-- AUTO_INCREMENT de la tabla `materia`
 --
 ALTER TABLE `materia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
