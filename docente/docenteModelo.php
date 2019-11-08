@@ -18,9 +18,9 @@ class docenteModelo {
         $query = mysqli_query($link, $consulta);
     }
 
-    function modificar($nombre, $carrera, $telefono, $documento, $fecha, $direccion, $foto) {
+    function modificar($nombre, $carrera, $telefono, $documento, $fecha, $direccion) {
         global $link;
-        $consulta = "UPDATE `docentes` SET `nombre`, `carrera`, `telefono`, `documento`, `fecha`, `direccion` WHERE `docentes`.`id`";
+        $consulta = "UPDATE `docentes` SET `nombre` = '$nombre', `carrera` = '$carrera', `telefono` = '$telefono', `documento` = '$documento', `fecha` = '$fecha', `direccion` = '$direccion' WHERE `docentes`.`id` = $id;";
         $query = mysqli_query($link, $consulta);
         }
 
