@@ -18,15 +18,28 @@ class docenteModelo {
         $query = mysqli_query($link, $consulta);
     }
 
-    function modificar($nombre, $carrera, $telefono, $documento, $fecha, $direccion) {
+    function modificar($nombre, $carrera, $telefono, $documento, $fecha, $direccion, $id) {
         global $link;
         $consulta = "UPDATE `docentes` SET `nombre` = '$nombre', `carrera` = '$carrera', `telefono` = '$telefono', `documento` = '$documento', `fecha` = '$fecha', `direccion` = '$direccion' WHERE `docentes`.`id` = $id;";
         $query = mysqli_query($link, $consulta);
-        }
+    }
+    function modificarFoto($foto,$id) {
+        global $link;
+        $consulta = "UPDATE `docentes` SET `foto` = '$foto' WHERE `docentes`.`id` = $id;";
+       
+        $query = mysqli_query($link, $consulta);
+    }
 
     function mostrarTodos() {
         global $link;
         $consulta = "SELECT * FROM `docentes`";
+        $query = mysqli_query($link, $consulta);
+        return $query;
+    }
+
+    function mostrar($id) {
+        global $link;
+        $consulta = "SELECT * FROM `docentes` WHERE id = $id";
         $query = mysqli_query($link, $consulta);
         return $query;
     }
