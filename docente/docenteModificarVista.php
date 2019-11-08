@@ -1,6 +1,21 @@
 <?php
 @session_start();
-$id = filter_input(INPUT_GET,'id');
+$id = filter_input(INPUT_GET, 'id');
+include_once "docenteModelo.php";
+$docenteModelo = new docenteModelo();
+$result = $docenteModelo->mostrar($id);
+while ($fila = mysqli_fetch_array($result)) {
+
+    if ($fila != NULL) {
+        $nombre = $fila['nombre'];
+        $documento = $fila['documento'];
+        $fecha = $fila['fecha'];
+        $carrera = $fila['carrera'];
+        $direccion = $fila['direccion'];
+        $telefono = $fila['telefono'];
+        $foto = $fila['foto'];
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,48 +57,72 @@ $id = filter_input(INPUT_GET,'id');
                     include_once '../componets/navBar.php';
                     ?>
                     <div class="container">
+                        <div style="margin-bottom: 80px;">
+                            <div class="form-group">
+                                <img src="<?php echo $foto; ?>" class="rounded float-left" width="80" height="80" >
+                                <br>
+                                <a href="<?php echo 'modificarFotoDocenteVista.php?id='.$id; ?>">Modificar foto</a>
+                                <br>
+                            </div> 
+                        </div>
 
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Crear Docente</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Modificar Docente</h6>
                             </div>
                             <div class="card-body">
-                                <form action="docenteCrearControlador.php" method="post" enctype="multipart/form-data">
+
+
+                                <form action="docenteModificarControlador.php" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="id" value="<?php echo $id; ?>">
                                     <div class="form-group">
                                         <label for="">Documento</label>
-                                        <input type="text" class="form-control" name="documento" required="">
+                                        <input type="text" value="<?php echo $documento; ?>" class="form-control" name="documento" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Nombre</label>
-                                        <input type="text" class="form-control" name="nombre" required="">
+                                        <input type="text" value="<?php echo $nombre; ?>" class="form-control" name="nombre" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Fecha nacimiento</label>
-                                        <input type="date" class="form-control" name="fecha" required="">
+                                        <input type="date" value="<?php echo $fecha; ?>" class="form-control" name="fecha" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Carrera</label>
-                                        <select class="form-control" name="area">
-                                            <option value="sistemas">Sistemas</option>
-                                            <option value="contabilidad">Contabilidad</option>
-                                            <option value="logistica">Logistica</option>
+                                        <select class="form-control" name="carrera" >
+                                            <?php
+                                            include_once '../carrera/carrerasModelo.php';
+                                            $carreraModelo = new carrerasModelo();
+                                            $result = $carreraModelo->mostrarTodos();
+                                            while ($fila = mysqli_fetch_array($result)) {
+
+                                                if ($fila != NULL) {
+                                                    if ($carrera == $fila['nombre']) {
+                                                        echo '<option value="' . $fila['nombre'] . '" selected>' . $fila['nombre'] . '</option>';
+                                                    } else {
+                                                        echo '<option value="' . $fila['nombre'] . '">' . $fila['nombre'] . '</option>';
+                                                    }
+                                                }
+                                            }
+                                            ?>
+
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Telefono</label>
-                                        <input type="text" class="form-control" name="telefono" required="">
+                                        <input type="text" class="form-control" value="<?php echo $telefono; ?>" name="telefono" required="">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Direccion</label>
-                                        <input type="text" class="form-control" name="direccion" required="">
+                                        <input type="text" class="form-control" name="direccion" value="<?php echo $direccion; ?>" required="">
                                     </div>
 
 
-                                    
 
 
 
-                                    <button type="submit" class="btn btn-success">Registrar</button>
+
+                                    <button type="submit" class="btn btn-success">Modificar</button>
                                     <button type="reset" class="btn btn-danger">Cancelar</button>
                                 </form>
                             </div>
@@ -100,9 +139,9 @@ $id = filter_input(INPUT_GET,'id');
 
 
                 <!-- Footer -->
-<?php
-include_once '../componets/footer.php';
-?>
+                <?php
+                include_once '../componets/footer.php';
+                ?>
                 <!-- End of Footer -->
 
             </div>
