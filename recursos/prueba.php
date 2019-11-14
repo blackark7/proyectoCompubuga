@@ -59,3 +59,5 @@
 //        document.getElementById('codigoNoticia').value = v;
 //        $('#modal-create-thanks-you').modal('show')
 //    }
+//UPDATE `docentes` SET `nombre` = 'LOPEZ7', `carrera` = '1', `telefono` = '3145704207', `documento` = '1116260777', `fecha` = '2019-11-08', `direccion` = 'kr 7d 31c1214' WHERE `docentes`.`id` = 7;
+//SELECT * FROM `docentes` 
