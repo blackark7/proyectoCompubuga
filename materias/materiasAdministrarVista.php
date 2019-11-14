@@ -77,8 +77,8 @@ include_once "../componets/enrutamientoSeguridad.php";
                                                 if ($fila != NULL) {
                                                     $contador++;
                                                     echo '<tr>
-                                            <td>' . $contador . '</td>
                                             <td>' . $fila['nombre'] . '</td>
+                                            <td>' . $fila['carrera'] . '</td>
 
 
                                             <td>
