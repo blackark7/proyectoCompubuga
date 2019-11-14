@@ -2,13 +2,13 @@
 include_once 'materiasModelo.php';
 $materiasModelo = new materiasModelo();
 
-$materia = filter_input(INPUT_POST, 'materia');
+$nombre = filter_input(INPUT_POST, 'nombre');
 $carrera = filter_input(INPUT_POST, 'carrera');
 
 
 
 
-$materiasModelo->insertar($materia,$carrera);
+$materiasModelo->insertar($nombre,$carrera);
     header("Location: materiasAdministrarVista.php");
 
  
