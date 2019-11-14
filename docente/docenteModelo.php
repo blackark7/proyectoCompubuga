@@ -25,8 +25,7 @@ class docenteModelo {
     }
     function modificarFoto($foto,$id) {
         global $link;
-        $consulta = "UPDATE `docentes` SET `foto` = '$foto' WHERE `docentes`.`id` = $id;";
-       
+        $consulta = "UPDATE `docentes` SET `foto` = '$foto' WHERE `docentes`.`id` = $id;";       
         $query = mysqli_query($link, $consulta);
     }
 
