@@ -23,5 +23,24 @@ class usuarioModelo {
         $query = mysqli_query($link, $consulta);
         return $query;
     }
+    
+    function modificar($nombreUsuario, $tipo, $id) {
+        global $link;
+        $consulta = "UPDATE `usuarios` SET `nombreUsuario` = '$nombreUsuario', `tipo` = '$tipo' WHERE `docentes`.`id` = $id;";
+        $query = mysqli_query($link, $consulta);
+    }
+    function modificarFoto($foto,$id) {
+        global $link;
+        $consulta = "UPDATE `usuarios` SET `foto` = '$foto' WHERE `usuarios`.`id` = $id;";       
+        $query = mysqli_query($link, $consulta);
+    }
+
+
+    function mostrar($id) {
+        global $link;
+        $consulta = "SELECT * FROM `usuarios` WHERE id = $id";
+        $query = mysqli_query($link, $consulta);
+        return $query;
+    }
 
 }
