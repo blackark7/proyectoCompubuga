@@ -57,7 +57,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Carrera</label>
-                                <select class="form-control" name="area">
+                                <select class="form-control" name="carrera">
                                     <!--                <option value="1">Sistemas</option>-->
                                     <!--                <option value="2">Asistente administrativo</option>-->
                                     <!--                <option value="3">losgistica</option>-->
