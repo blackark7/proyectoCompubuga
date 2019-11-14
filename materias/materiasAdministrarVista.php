@@ -60,8 +60,8 @@ include_once "../componets/enrutamientoSeguridad.php";
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>id</th>
-                                                <th>Materias</th>
+                                                <th>Materia</th>
+                                                <th>Carrera asignada</th>
                                                 <th>Acciones</th>
 
                                             </tr>
