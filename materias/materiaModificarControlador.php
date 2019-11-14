@@ -3,14 +3,14 @@
 
 
 $id = filter_input(INPUT_POST, 'id');
-$materia = filter_input(INPUT_POST, 'materia');
+$nombre = filter_input(INPUT_POST, 'nombre');
 $carrera = filter_input(INPUT_POST, 'carrera');
 
 
 
 include_once 'materiasModelo.php';
 $materiasModelo = new materiasModelo();
-$materiasModelo->modificar($materia,$carrera);
+$materiasModelo->modificar($nombre,$carrera,$id);
 
     header("Location: materiasAdministrarVista.php");
 
