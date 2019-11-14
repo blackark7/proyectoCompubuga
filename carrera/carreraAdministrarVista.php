@@ -86,8 +86,8 @@ include_once "../componets/enrutamientoSeguridad.php";
                      <a href="#" onclick="eliminarModal(' . $fila['id'] . ')" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Eliminar">
                         <i class="fas fa-trash"></i>
                           </a>
-                    <a href="#" class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Modificar">
-                      <i class="fas fa-edit"></i>
+                    <a href="carreraModificarVista.php?id=' . $fila['id'] . '" class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Modificar">
+                    <i class="fas fa-edit"></i>
                     </a>    
                   </td>
                 </tr>';
@@ -147,7 +147,7 @@ include_once "../componets/enrutamientoSeguridad.php";
                 </div>
             </div>
         </div>
-        
+
         <!--        //MODAL DE ELIMINAR-->
         <div class="modal fade" id="mEliminar" tabindex="-1" role="dialog" aria-labelledby="mEliminar">
             <div class="modal-dialog" role="document">
@@ -170,8 +170,8 @@ include_once "../componets/enrutamientoSeguridad.php";
                 </div>
             </div>
         </div>
-        
-        
+
+
 
         <!-- Bootstrap core JavaScript-->
         <script src="../vendor/jquery/jquery.min.js"></script>
@@ -187,7 +187,7 @@ include_once "../componets/enrutamientoSeguridad.php";
         <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
         <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-           <!--        //MODAL DE ELIMINAR-->
+        <!--        //MODAL DE ELIMINAR-->
         <script type="text/javascript">
             function eliminarModal(v) {
                 var valor = v;
