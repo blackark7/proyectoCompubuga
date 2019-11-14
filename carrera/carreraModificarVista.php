@@ -76,7 +76,7 @@ while ($fila = mysqli_fetch_array($result)) {
 
                                     <hr>
 
-                                    <button type="submit" class="btn btn-success">Registrar</button>
+                                    <button type="submit" class="btn btn-success">Guardar</button>
                                     <button type="reset" class="btn btn-danger">Cancelar</button>
                                 </form>
                             </div>
