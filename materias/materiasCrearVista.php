@@ -53,14 +53,12 @@
                         <form action="materiasCrearControlador.php" method="post">
                             <div class="form-group">
                                 <label for="">Materia</label>
-                                <input type="text" class="form-control" name="materia" required="">
+                                <input type="text" class="form-control" name="nombre" required="">
                             </div>
                             <div class="form-group">
                                 <label for="">Carrera</label>
                                 <select class="form-control" name="carrera">
-                                    <!--                <option value="1">Sistemas</option>-->
-                                    <!--                <option value="2">Asistente administrativo</option>-->
-                                    <!--                <option value="3">losgistica</option>-->
+                                    
                                     <?php
                                         include_once "../carrera/carrerasModelo.php";
                                         $carreraModelo = new carrerasModelo();
