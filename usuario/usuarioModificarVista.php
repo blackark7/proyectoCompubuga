@@ -10,7 +10,7 @@ while ($fila = mysqli_fetch_array($result)) {
     if ($fila != NULL) {
         
         $tipo = $fila['tipo'];
-        $nombreUsuario = $fila['nombreUsuario'];        
+        $user = $fila['user'];        
         $foto = $fila['foto'];
     }
 }
@@ -74,6 +74,7 @@ while ($fila = mysqli_fetch_array($result)) {
                     </div>
                     <div class="card-body">
                         <form action="usuarioModificarControlador.php" method="post" enctype="multipart/form-data">
+                             <input type="hidden" name="id" value="<?php echo $id; ?>">
                             <div class="form-group">
                                 <label for="">Tipo</label>
                                 <select class="form-control" name="tipo">
@@ -84,7 +85,7 @@ while ($fila = mysqli_fetch_array($result)) {
                                             while ($fila = mysqli_fetch_array($result)) {
 
                                                 if ($fila != NULL) {
-                                                    if ($usuario == $fila['tipo']) {
+                                                    if ($user == $fila['tipo']) {
                                                         echo '<option value="' . $fila['tipo'] . '" selected>' . $fila['tipo'] . '</option>';
                                                     } else {
                                                         echo '<option value="' . $fila['tipo'] . '">' . $fila['tipo'] . '</option>';
@@ -97,7 +98,7 @@ while ($fila = mysqli_fetch_array($result)) {
 
                             <div class="form-group">
                                 <label for="">Nombre usuario</label>
-                                <input type="text" value="<?php echo $nombreUsuario; ?>" class="form-control" name="nombreUsuario" required="">
+                                <input type="text" value="<?php echo $user; ?>" class="form-control" name="user" required="">
                             </div>
 
 
