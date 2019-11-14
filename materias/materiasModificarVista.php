@@ -65,6 +65,7 @@ while ($fila = mysqli_fetch_array($result)) {
                     </div>
                     <div class="card-body">
                         <form action="materiaModificarControlador.php" method="post">
+                            <input type="hidden" name="id" value="<?php echo $id; ?>">
                             <div class="form-group">
                                 <label for="">Materia</label>
                                 <input type="text" value="<?php echo $nombre; ?>"class="form-control" name="nombre" required="">
