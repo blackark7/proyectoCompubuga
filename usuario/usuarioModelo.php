@@ -24,9 +24,9 @@ class usuarioModelo {
         return $query;
     }
     
-    function modificar($nombreUsuario, $tipo, $id) {
+    function modificar($user, $tipo, $id) {
         global $link;
-        $consulta = "UPDATE `usuarios` SET `nombreUsuario` = '$nombreUsuario', `tipo` = '$tipo' WHERE `docentes`.`id` = $id;";
+        $consulta = "UPDATE `usuarios` SET `user` = '$user', `tipo` = '$tipo' WHERE `usuarios`.`id` = $id;";
         $query = mysqli_query($link, $consulta);
     }
     function modificarFoto($foto,$id) {
