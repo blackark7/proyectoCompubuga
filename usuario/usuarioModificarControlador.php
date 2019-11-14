@@ -2,13 +2,13 @@
 
 $id = filter_input(INPUT_POST, 'id');
 $tipo = filter_input(INPUT_POST, 'tipo');
-$usuario = filter_input(INPUT_POST, 'nombreUsuario');
+$user = filter_input(INPUT_POST, 'user');
 
 
 
     include_once "usuarioModelo.php";
     $usuarioModelo = new usuarioModelo();
-    $usuarioModelo->modificar($tipo, $usuario, $id);
+    $usuarioModelo->modificar($tipo, $user, $id);
 
 
 
