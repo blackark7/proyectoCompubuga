@@ -85,7 +85,7 @@ include_once "../componets/enrutamientoSeguridad.php";
                 <a href="#" onclick="eliminarModal(' . $fila['id'] . ')" class="btn btn-danger btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Eliminar">
                 <i class="fas fa-trash"></i>
                 </a>
-                <a href="#" class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Modificar">
+                <a href="usuarioModificarVista.php?id=' . $fila['id'] . '" class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Modificar">
                 <i class="fas fa-edit"></i>
                 </a>
                
