@@ -64,25 +64,27 @@ while ($fila = mysqli_fetch_array($result)) {
                         <h6 class="m-0 font-weight-bold text-primary">Modificar Materia</h6>
                     </div>
                     <div class="card-body">
-                        <form action="materiasCrearControlador.php" method="post">
+                        <form action="materiaModificarControlador.php" method="post">
                             <div class="form-group">
                                 <label for="">Materia</label>
-                                <input type="text" value="<?php echo $nombre; ?>"class="form-control" name="materia" required="">
+                                <input type="text" value="<?php echo $nombre; ?>"class="form-control" name="nombre" required="">
                             </div>
                             <div class="form-group">
                                 <label for="">Carrera</label>
                                 <select class="form-control" name="carrera">
-                                    <!--                <option value="1">Sistemas</option>-->
-                                    <!--                <option value="2">Asistente administrativo</option>-->
-                                    <!--                <option value="3">losgistica</option>-->
+                                                 <option value="3">losgistica</option>-->
                                     <?php
                                         include_once "../carrera/carrerasModelo.php";
                                         $carreraModelo = new carrerasModelo();
                                         $result = $carreraModelo->mostrarTodos();
                                         while ($fila = mysqli_fetch_array($result)) {
-                                            if ($fila != NULL) {
-                                                echo  "<option value='".$fila['id']."'>".$fila['nombre']."</option>";
-                                            }
+                                              if ($fila != NULL) {
+                                                    if ($carrera == $fila['nombre']) {
+                                                        echo '<option value="' . $fila['nombre'] . '" selected>' . $fila['nombre'] . '</option>';
+                                                    } else {
+                                                        echo '<option value="' . $fila['nombre'] . '">' . $fila['nombre'] . '</option>';
+                                                    }
+                                                }
                                         }
 
 
@@ -93,7 +95,7 @@ while ($fila = mysqli_fetch_array($result)) {
 
                             <hr>
 
-                            <button type="submit" class="btn btn-success">Registrar</button>
+                            <button type="submit" class="btn btn-success">Modificar</button>
                             <button type="reset" class="btn btn-danger">Cancelar</button>
                         </form>
                     </div>
