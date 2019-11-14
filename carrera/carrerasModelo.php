@@ -24,5 +24,18 @@ class carrerasModelo {
         $query = mysqli_query($link, $consulta);
         return $query;
     }
+    
+       function modificar($nombre, $id) {
+        global $link;
+        $consulta = "UPDATE `carrera` SET `nombre` = '$nombre' WHERE `carrera`.`id` = $id;";
+        $query = mysqli_query($link, $consulta);
+    }
+
+    function mostrar($id) {
+        global $link;
+        $consulta = "SELECT * FROM `carrera` WHERE id = $id";
+        $query = mysqli_query($link, $consulta);
+        return $query;
+    }
 
 }
