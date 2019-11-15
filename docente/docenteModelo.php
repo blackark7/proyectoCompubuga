@@ -23,9 +23,10 @@ class docenteModelo {
         $consulta = "UPDATE `docentes` SET `nombre` = '$nombre', `carrera` = '$carrera', `telefono` = '$telefono', `documento` = '$documento', `fecha` = '$fecha', `direccion` = '$direccion' WHERE `docentes`.`id` = $id;";
         $query = mysqli_query($link, $consulta);
     }
-    function modificarFoto($foto,$id) {
+
+    function modificarFoto($foto, $id) {
         global $link;
-        $consulta = "UPDATE `docentes` SET `foto` = '$foto' WHERE `docentes`.`id` = $id;";       
+        $consulta = "UPDATE `docentes` SET `foto` = '$foto' WHERE `docentes`.`id` = $id;";
         $query = mysqli_query($link, $consulta);
     }
 
@@ -41,6 +42,19 @@ class docenteModelo {
         $consulta = "SELECT * FROM `docentes` WHERE id = $id";
         $query = mysqli_query($link, $consulta);
         return $query;
+    }
+
+    function ultimoId() {
+        global $link;
+        $consulta = "SELECT * FROM `docentes`";
+        $query = mysqli_query($link, $consulta);
+        while ($fila = mysqli_fetch_array($query)) {
+
+            if ($fila != NULL) {
+                $id = $fila['id'];
+            }
+        }
+        return $id;
     }
 
 }
