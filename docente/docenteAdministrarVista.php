@@ -100,9 +100,9 @@ include_once "../componets/enrutamientoSeguridad.php";
                 <a href="#" class="btn btn-success  btn-circle btn-sm" data-toggle="modal" data-target="#modalAsignar" title="Asignar Materia">
                 <i class="fas fa-list-alt"></i>
                 </a>
-                <button class="btn btn-warning  btn-circle btn-sm" data-toggle="modal" data-target="#exampleModal" title="Asignar Disponibilidad">
+                <a href="#" onclick="asignarDisponibilidad(' . $fila['id'] . ')" class="btn btn-warning  btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Asignar disponibilidad">
                 <i class="fas fa-clock"></i>
-                </button>
+                </a>
                 </td>
                 </tr>';
                                                 }
@@ -141,82 +141,7 @@ include_once "../componets/enrutamientoSeguridad.php";
         <!-- Logout Modal-->
 
 
-        <!-- Modal ASIGNAR DISPONIBILIDAD -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog  modal-xl" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Asignar disponibilidad</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form action="asignarDisponibilidadDocenteControlador.php" method="post">
-                        <div class="modal-body">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Lunes</th>
-                                        <th scope="col">Martes</th>
-                                        <th scope="col">Miercoles</th>
-                                        <th scope="col">Jueves</th>
-                                        <th scope="col">Viernes</th>
-                                        <th scope="col">Sabado</th>
-                                        <th scope="col">Domingo</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <tr>
-                                        <td><input type="checkbox" name="ml" class="form-check-input" id="exampleCheck1"> Mañana
-                                        </td>
-                                        <td><input type="checkbox" name="mma" class="form-check-input" id="exampleCheck1"> Mañana
-                                        </td>
-                                        <td><input type="checkbox" name="mmi" class="form-check-input" id="exampleCheck1"> Mañana
-                                        </td>
-                                        <td><input type="checkbox" name="mj" class="form-check-input" id="exampleCheck1"> Mañana
-                                        </td>
-                                        <td><input type="checkbox" name="mv" class="form-check-input" id="exampleCheck1"> Mañana
-                                        </td>
-                                        <td><input type="checkbox" name="ms" class="form-check-input" id="exampleCheck1"> Mañana
-                                        </td>
-                                        <td><input type="checkbox" name="md" class="form-check-input" id="exampleCheck1"> Mañana
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" name="tl" class="form-check-input" id="exampleCheck1"> Tarde</td>
-                                        <td><input type="checkbox" name="tm" class="form-check-input" id="exampleCheck1"> Tarde</td>
-                                        <td><input type="checkbox" name="tmi" class="form-check-input" id="exampleCheck1"> Tarde
-                                        </td>
-                                        <td><input type="checkbox" name="tj" class="form-check-input" id="exampleCheck1"> Tarde</td>
-                                        <td><input type="checkbox" name="tv" class="form-check-input" id="exampleCheck1"> Tarde</td>
-                                        <td><input type="checkbox" name="ts" class="form-check-input" id="exampleCheck1"> Tarde</td>
-                                        <td><input type="checkbox" name="td" class="form-check-input" id="exampleCheck1"> Tarde</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" name="nl" class="form-check-input" id="exampleCheck1"> Noche</td>
-                                        <td><input type="checkbox" name="nm" class="form-check-input" id="exampleCheck1"> Noche</td>
-                                        <td><input type="checkbox" name="nmi" class="form-check-input" id="exampleCheck1"> Noche
-                                        </td>
-                                        <td><input type="checkbox" name="nj" class="form-check-input" id="exampleCheck1"> Noche</td>
-                                        <td><input type="checkbox" name="nv" class="form-check-input" id="exampleCheck1"> Noche</td>
-                                        <td><input type="checkbox" name="ns" class="form-check-input" id="exampleCheck1"> Noche</td>
-                                        <td><input type="checkbox" name="nd" class="form-check-input" id="exampleCheck1"> Noche</td>
-                                    </tr>
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+  
 
         <!-- Modal ASIGNAR MATERIA-->
         <div class="modal fade" id="modalAsignar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -336,6 +261,34 @@ include_once "../componets/enrutamientoSeguridad.php";
                 </div>
             </div>
         </div>
+        
+        
+        
+        <!--        //MODAL DE disponibilidad-->
+        <div class="modal fade" id="mDisponibilidad" tabindex="-1" role="dialog" aria-labelledby="mDisponibilidad">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        ASIGNAR DISPONIBILIDAD
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+                        <!--<h4 class="modal-title" id="myModalLabel">Eliminar</h4>-->
+                    </div>
+                   <form action="asignarDisponibilidadDocenteControlador.php" method="post">
+                        <div class="modal-body">
+                            <div id="contenidoD">
+                                
+                            </div>                                                  
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
 
         <!--        //MODAL DE ELIMINAR-->
         <div class="modal fade" id="mEliminar" tabindex="-1" role="dialog" aria-labelledby="mEliminar">
@@ -395,6 +348,13 @@ include_once "../componets/enrutamientoSeguridad.php";
                 var valor = v;
                 document.getElementById('idUsuario').value = v;
                 $('#mEliminar').modal('show')
+            }
+            function asignarDisponibilidad(v) {
+                var valor = v;
+                 $('#contenidoD').load('../disponibilidad/disponibilidadVista.php?id='+v);
+                document.getElementById('idUsuario').value = v;
+                $('#mDisponibilidad').modal('show');
+               
             }
         </script>
 
