@@ -1,6 +1,4 @@
-<?php 
-
-
+<?php
 
 $nombre = filter_input(INPUT_POST, 'nombre');
 $carrera = filter_input(INPUT_POST, 'carrera');
@@ -19,12 +17,14 @@ if (!$move) {
     echo 'codigo error: ' . $codigo;
     echo 'la imagen  no pudo ser movida';
 } else {
-include_once "docenteModelo.php";
-$docenteModelo = new docenteModelo();
-$docenteModelo->insertar($nombre,$carrera,$telefono,$documento,$fecha,$direccion,$destino);
-
+    include_once "docenteModelo.php";
+    $docenteModelo = new docenteModelo();
+    $docenteModelo->insertar($nombre, $carrera, $telefono, $documento, $fecha, $direccion, $destino);
+    $id = $docenteModelo->ultimoId();
+    include_once '../disponibilidad/disponibilidadModelo.php';
+    $disponibilidadModelo = new disponibilidadModelo();
+    $disponibilidadModelo->insertar($id, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 }
 
-    header("Location: docenteAdministrarVista.php"); 
-
- ?>
+header("Location: docenteAdministrarVista.php");
+?>
