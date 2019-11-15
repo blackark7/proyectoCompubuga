@@ -8,7 +8,7 @@ $user = filter_input(INPUT_POST, 'user');
 
     include_once "usuarioModelo.php";
     $usuarioModelo = new usuarioModelo();
-    $usuarioModelo->modificar($tipo, $user, $id);
+    $usuarioModelo->modificar($user,$tipo,$id);
 
 
 
