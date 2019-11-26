@@ -274,7 +274,7 @@ include_once "../componets/enrutamientoSeguridad.php";
                         </button>
                         <!--<h4 class="modal-title" id="myModalLabel">Eliminar</h4>-->
                     </div>
-                   <form action="asignarDisponibilidadDocenteControlador.php" method="post">
+                    <form action="../disponibilidad/modificarDisponibilidadControlador.php" method="post">
                         <div class="modal-body">
                             <div id="contenidoD">
                                 
