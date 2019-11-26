@@ -2,7 +2,7 @@
 $id = filter_input(INPUT_GET, 'id');
 include_once 'disponibilidadModelo.php';
 $disponibilidadModelo = new disponibilidadModelo();
-$disponibilidadModelo->mostrar($id);
+$result=$disponibilidadModelo->mostrar($id);
 while ($fila = mysqli_fetch_array($result)) {
 
     if ($fila != NULL) {
@@ -14,14 +14,14 @@ while ($fila = mysqli_fetch_array($result)) {
         $ms = $fila['ms'];
         $md = $fila['md'];
         $tl = $fila['tl'];
-        $tm = $fila['tm'];
+        $tma = $fila['tma'];
         $tmi = $fila['tmi'];
         $tj = $fila['tj'];
         $tv = $fila['tv'];
         $ts = $fila['ts'];
         $td = $fila['td'];
         $nl = $fila['nl'];
-        $nm = $fila['nm'];
+        $nma = $fila['nma'];
         $nmi = $fila['nmi'];
         $nj = $fila['nj'];
         $nv = $fila['nv'];
@@ -29,8 +29,9 @@ while ($fila = mysqli_fetch_array($result)) {
         $nd = $fila['nd'];
     }
 }
-?>
 
+?>
+<input type="hidden" name="id" value="<?php echo $id; ?>">
 <table class="table table-striped">
     <thead>
         <tr>
@@ -47,40 +48,199 @@ while ($fila = mysqli_fetch_array($result)) {
 
 
         <tr>
-            <td><input type="checkbox" name="ml" class="form-check-input" id="exampleCheck1"> Mañana
+            <td>
+                <?php 
+                 if($ml == 0){
+                     echo '<input type="checkbox" name="ml" class="form-check-input" id="exampleCheck1"> Mañana';
+                 } else {
+                     echo '<input type="checkbox" name="ml" class="form-check-input" id="exampleCheck1" checked> Mañana';    
+                 }
+                ?>                
+            </td>            
+            <td>
+                <?php
+                if ($mma == 0){
+                    echo '<input type="checkbox" name="mma" class="form-check-input" id="exampleCheck1"> Mañana';
+                } else {
+                    echo '<input type="checkbox" name="mma" class="form-check-input" id="exampleCheck1" checked> Mañana';
+                }
+                ?>
             </td>
-            <td><input type="checkbox" name="mma" class="form-check-input" id="exampleCheck1"> Mañana
+            <td>
+                <?php
+                if ($mmi == 0){
+                    echo '<input type="checkbox" name="mmi" class="form-check-input" id="exampleCheck1"> Mañana';
+                } else {
+                    echo '<input type="checkbox" name="mmi" class="form-check-input" id="exampleCheck1" checked> Mañana';
+                }
+                ?>                
             </td>
-            <td><input type="checkbox" name="mmi" class="form-check-input" id="exampleCheck1"> Mañana
+            <td>
+                <?php
+                if ($mj == 0){
+                    echo '<input type="checkbox" name="mj" class="form-check-input" id="exampleCheck1"> Mañana';
+                }else {
+                    echo '<input type="checkbox" name="mj" class="form-check-input" id="exampleCheck1" checked> Mañana';
+                }
+                ?>
             </td>
-            <td><input type="checkbox" name="mj" class="form-check-input" id="exampleCheck1"> Mañana
+            <td>
+                <?php
+                if ($mv == 0){
+                    echo '<input type="checkbox" name="mv" class="form-check-input" id="exampleCheck1"> Mañana';
+                } else {
+                    echo '<input type="checkbox" name="mv" class="form-check-input" id="exampleCheck1" checked> Mañana';
+                }
+                ?>                
             </td>
-            <td><input type="checkbox" name="mv" class="form-check-input" id="exampleCheck1"> Mañana
+            <td>
+                <?php
+                if ($ms == 0){
+                    echo '<input type="checkbox" name="ms" class="form-check-input" id="exampleCheck1"> Mañana';
+                } else {
+                    echo '<input type="checkbox" name="ms" class="form-check-input" id="exampleCheck1" checked> Mañana';
+                }
+                ?>                
             </td>
-            <td><input type="checkbox" name="ms" class="form-check-input" id="exampleCheck1"> Mañana
-            </td>
-            <td><input type="checkbox" name="md" class="form-check-input" id="exampleCheck1"> Mañana
+            <td>
+                <?php
+                if ($md == 0){
+                    echo '<input type="checkbox" name="md" class="form-check-input" id="exampleCheck1"> Mañana'; 
+                } else {
+                    echo '<input type="checkbox" name="md" class="form-check-input" id="exampleCheck1" checked> Mañana';
+                }
+                ?>                
             </td>
         </tr>
         <tr>
-            <td><input type="checkbox" name="tl" class="form-check-input" id="exampleCheck1"> Tarde</td>
-            <td><input type="checkbox" name="tm" class="form-check-input" id="exampleCheck1"> Tarde</td>
-            <td><input type="checkbox" name="tmi" class="form-check-input" id="exampleCheck1"> Tarde
+            <td>
+                <?php
+                if ($tl == 0){
+                    echo '<input type="checkbox" name="tl" class="form-check-input" id="exampleCheck1"> Tarde';
+                } else {
+                    echo '<input type="checkbox" name="tl" class="form-check-input" id="exampleCheck1" checked> Tarde';
+                }
+                ?>
+                </td>
+            <td>
+                <?php
+                if ($tma == 0){
+                    echo '<input type="checkbox" name="tma" class="form-check-input" id="exampleCheck1"> Tarde';
+                }else {
+                    echo '<input type="checkbox" name="tma" class="form-check-input" id="exampleCheck1" checked> Tarde';
+                }
+                ?>
+                </td>
+            <td>
+                <?php
+                if ($tmi == 0){
+                    echo '<input type="checkbox" name="tmi" class="form-check-input" id="exampleCheck1"> Tarde';
+                }else {
+                    echo '<input type="checkbox" name="tmi" class="form-check-input" id="exampleCheck1" checked> Tarde';
+                }
+                ?>                
             </td>
-            <td><input type="checkbox" name="tj" class="form-check-input" id="exampleCheck1"> Tarde</td>
-            <td><input type="checkbox" name="tv" class="form-check-input" id="exampleCheck1"> Tarde</td>
-            <td><input type="checkbox" name="ts" class="form-check-input" id="exampleCheck1"> Tarde</td>
-            <td><input type="checkbox" name="td" class="form-check-input" id="exampleCheck1"> Tarde</td>
+            <td>
+                <?php
+                if ($tj == 0){
+                    echo '<input type="checkbox" name="tj" class="form-check-input" id="exampleCheck1"> Tarde';
+                } else {
+                    echo '<input type="checkbox" name="tj" class="form-check-input" id="exampleCheck1" checked> Tarde';
+                }
+                ?>
+                </td>
+            <td>
+                <?php
+                if ($tv == 0){
+                    echo '<input type="checkbox" name="tv" class="form-check-input" id="exampleCheck1"> Tarde';
+                }else {
+                    echo '<input type="checkbox" name="tv" class="form-check-input" id="exampleCheck1" checked> Tarde';
+                }
+                ?>
+                </td>
+            <td>
+                <?php
+                if ($ts == 0){
+                    echo '<input type="checkbox" name="ts" class="form-check-input" id="exampleCheck1"> Tarde';
+                }else {
+                    echo '<input type="checkbox" name="ts" class="form-check-input" id="exampleCheck1" checked> Tarde';
+                }
+                ?>
+                </td>
+            <td>
+                <?php
+                if ($td == 0){
+                    echo '<input type="checkbox" name="td" class="form-check-input" id="exampleCheck1"> Tarde';
+                } else {
+                    echo '<input type="checkbox" name="td" class="form-check-input" id="exampleCheck1" checked> Tarde';
+                }
+                ?>
+                </td>
         </tr>
         <tr>
-            <td><input type="checkbox" name="nl" class="form-check-input" id="exampleCheck1"> Noche</td>
-            <td><input type="checkbox" name="nm" class="form-check-input" id="exampleCheck1"> Noche</td>
-            <td><input type="checkbox" name="nmi" class="form-check-input" id="exampleCheck1"> Noche
+            <td>
+                <?php
+                if ($nl == 0){
+                    echo '<input type="checkbox" name="nl" class="form-check-input" id="exampleCheck1"> Noche';
+                }else {
+                    echo '<input type="checkbox" name="nl" class="form-check-input" id="exampleCheck1" checked> Noche';
+                }
+                ?>
+                </td>
+            <td>
+                <?php
+                if ($nma == 0){
+                    echo '<input type="checkbox" name="nma" class="form-check-input" id="exampleCheck1"> Noche';
+                } else {
+                    echo '<input type="checkbox" name="nma" class="form-check-input" id="exampleCheck1" checked> Noche';
+                }
+                ?>
+                </td>
+            <td>
+                <?php
+                if ($nmi == 0){
+                    echo '<input type="checkbox" name="nmi" class="form-check-input" id="exampleCheck1"> Noche';
+                }else {
+                    echo '<input type="checkbox" name="nmi" class="form-check-input" id="exampleCheck1" checked> Noche';
+                }
+                ?>                
             </td>
-            <td><input type="checkbox" name="nj" class="form-check-input" id="exampleCheck1"> Noche</td>
-            <td><input type="checkbox" name="nv" class="form-check-input" id="exampleCheck1"> Noche</td>
-            <td><input type="checkbox" name="ns" class="form-check-input" id="exampleCheck1"> Noche</td>
-            <td><input type="checkbox" name="nd" class="form-check-input" id="exampleCheck1"> Noche</td>
+            <td>
+                <?php
+                if ($nj == 0){
+                    echo '<input type="checkbox" name="nj" class="form-check-input" id="exampleCheck1"> Noche';
+                }else {
+                    echo '<input type="checkbox" name="nj" class="form-check-input" id="exampleCheck1" checked> Noche';
+                }
+                ?>
+                </td>
+            <td>
+                <?php
+                if ($nv == 0){
+                    echo '<input type="checkbox" name="nv" class="form-check-input" id="exampleCheck1"> Noche';
+                }else {
+                    echo '<input type="checkbox" name="nv" class="form-check-input" id="exampleCheck1" checked> Noche';
+                }
+                ?>
+                </td>
+            <td>
+                <?php
+                if ($ns == 0){
+                    echo '<input type="checkbox" name="ns" class="form-check-input" id="exampleCheck1"> Noche';
+                } else {
+                    echo '<input type="checkbox" name="ns" class="form-check-input" id="exampleCheck1" checked> Noche';
+                }
+                ?>
+                </td>
+            <td>
+                <?php
+                if ($nd == 0){
+                    echo '<input type="checkbox" name="nd" class="form-check-input" id="exampleCheck1"> Noche';
+                }else {
+                    echo '<input type="checkbox" name="nd" class="form-check-input" id="exampleCheck1" checked> Noche';
+                }
+                ?>
+                </td>
         </tr>
 
         </tr>
