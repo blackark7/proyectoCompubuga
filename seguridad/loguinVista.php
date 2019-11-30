@@ -1,84 +1,70 @@
 <?php
 @session_start();
- if (isset($_SESSION['usuario'])){
-     header("Location: ../docente/docenteAdministrarVista.php");
-     exit();
- }
+if (isset($_SESSION['usuario'])) {
+    header("Location: ../docente/docenteAdministrarVista.php");
+    exit();
+}
 ?>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
+	<title>Compubuga Admin</title>
+   <!--Made with love by Mutiullah Samim -->
+   
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Compubuga Admin</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-
+	<!--Custom styles-->
+        <link rel="stylesheet" type="text/css" href="../css/styles.css">
+        
 </head>
-
-<body id="page-top">
-
-<!-- Page Wrapper -->
-<div id="wrapper">
-
-        <!-- End of Footer -->
-
-    <form action="loguinControlador.php" method="post">
-        <input type="text" name="user" placeholder="usuario">
-        <br>
-        <input type="password" name="password" placeholder="Contraseña">
-        <br>
-        <input type="submit" value="INGRESAR">
-        <br>
-        <?php
-        if (isset($_SESSION['mensaje'])){
-            echo $_SESSION['mensaje'];
-            unset($_SESSION['mensaje']);
-        }
-        ?>
-    </form>
-
-
+<body>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				
+			</div>
+			<div class="card-body">
+				<form role="form" action="loguinControlador.php" method="post">
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" name="user" placeholder="usuario">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" name="password" placeholder="Contraseña">
+					</div>
+					
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn">
+					</div>
+                                      <br>
+                                <?php
+                                if (isset($_SESSION['mensaje'])) {
+                                    echo $_SESSION['mensaje'];
+                                    unset($_SESSION['mensaje']);
+                                }
+                                ?>
+				</form>
+			</div>
+			
+		</div>
+	</div>
 </div>
-<!-- End of Page Wrapper -->
-
-
-<!-- Bootstrap core JavaScript-->
-<script src="../vendor/jquery/jquery.min.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="../js/sb-admin-2.min.js"></script>
-
-<!-- Page level plugins -->
-<script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-<!-- Page level custom scripts -->
-<script src="../js/demo/datatables-demo.js"></script>
-<script type="text/javascript">
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-</script>
-
-
-
 </body>
-
 </html>
-
