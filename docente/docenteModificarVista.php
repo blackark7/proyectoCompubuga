@@ -61,7 +61,7 @@ while ($fila = mysqli_fetch_array($result)) {
                             <div class="form-group">
                                 <img src="<?php echo $foto; ?>" class="rounded float-left" width="80" height="80" >
                                 <br>
-                                <a href="<?php echo 'modificarFotoDocenteVista.php?id='.$id; ?>">Modificar foto</a>
+                                <a href="<?php echo 'modificarFotoDocenteVista.php?id='.$id; ?>">Cambiar Imagen</a>
                                 <br>
                             </div> 
                         </div>
