@@ -1,4 +1,5 @@
 <?php
+@session_start();
 include_once "../componets/enrutamientoSeguridad.php";
 ?>
 
@@ -44,6 +45,13 @@ include_once "../componets/enrutamientoSeguridad.php";
                     ?>
                     <div class="container">
                         <h1>DOCENTES</h1>
+                        <?php 
+                          if (isset($_SESSION['dis'])) {
+                              echo $_SESSION['dis'];
+                              unset($_SESSION['dis']);
+                          }
+
+                        ?>
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">Lista de Docentes</h6>
@@ -97,7 +105,7 @@ include_once "../componets/enrutamientoSeguridad.php";
                 <a href="docenteModificarVista.php?id=' . $fila['id'] . '" class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Modificar">
                 <i class="fas fa-edit"></i>
                 </a>
-                <a href="#" class="btn btn-success  btn-circle btn-sm" data-toggle="modal" data-target="#modalAsignar" title="Asignar Materia">
+                <a href="#" onclick="asignarMateria(' . $fila['id'] . ')" class="btn btn-success  btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Asignar materia">
                 <i class="fas fa-list-alt"></i>
                 </a>
                 <a href="#" onclick="asignarDisponibilidad(' . $fila['id'] . ')" class="btn btn-warning  btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Asignar disponibilidad">
@@ -144,8 +152,7 @@ include_once "../componets/enrutamientoSeguridad.php";
   
 
         <!-- Modal ASIGNAR MATERIA-->
-        <div class="modal fade" id="modalAsignar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
+        <div  class="modal fade" id="modalAsignar" tabindex="-1" role="dialog" aria-labelledby="modalAsignar">
             <div class="modal-dialog  modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -155,101 +162,10 @@ include_once "../componets/enrutamientoSeguridad.php";
                         </button>
                     </div>
                     <form action="asignarMateriaDocenteControlador.php" method="post">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Dia de la semana</label>
-                                <select class="form-control" id="exampleFormControlSelect1" name="diaSemana">
-                                    <option value="lunes">Lunes</option>
-                                    <option value="martes">Martes</option>
-                                    <option value="miercoles">Miercoles</option>
-                                    <option value="jueves">Jueves</option>
-                                    <option value="viernes">Viernes</option>
-                                    <option value="sabado">Sabado</option>
-                                    <option value="domingo">Domingo</option>
-
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Materia</label>
-                                <select class="form-control" id="exampleFormControlSelect1" name="materia">
-                                    <option value="webmaster">Web Master</option>
-                                    <option value="excel">Excel</option>
-                                    <option value="informatica">Informatica</option>
-
-
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Hora inicio</label>
-                                <select class="form-control" id="exampleFormControlSelect1" name="horaInicio">
-                                    <option value="7">7</option>
-                                    <option value="7.30">7.30</option>
-                                    <option value="8">8</option>
-                                    <option value="8.30">8.30</option>
-                                    <option value="9">9</option>
-                                    <option value="9.30">9.30</option>
-                                    <option value="10">10</option>
-                                    <option value="10.30">10.30</option>
-                                    <option value="11">11</option>
-                                    <option value="11.30">11.30</option>
-                                    <option value="12">12</option>
-                                    <option value="12.30">12.30</option>
-                                    <option value="13">13</option>
-                                    <option value="13.30">13.30</option>
-                                    <option value="14">14</option>
-                                    <option value="14.30">14.30</option>
-                                    <option value="15">15</option>
-                                    <option value="15.30">15.30</option>
-                                    <option value="16">16</option>
-                                    <option value="16.30">16.30</option>
-                                    <option value="17">17</option>
-                                    <option value="17.30">17.30</option>
-                                    <option value="18">18</option>
-                                    <option value="18.30">18.30</option>
-                                    <option value="19">19</option>
-                                    <option value="19.30">19.30</option>
-                                    <option value="20">20</option>
-                                    <option value="20.30">20.30</option>
-
-
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Hora fin</label>
-                                <select class="form-control" id="exampleFormControlSelect1" name="horaFin">
-                                    <option value="7">7</option>
-                                    <option value="7.30">7.30</option>
-                                    <option value="8">8</option>
-                                    <option value="8.30">8.30</option>
-                                    <option value="9">9</option>
-                                    <option value="9.30">9.30</option>
-                                    <option value="10">10</option>
-                                    <option value="10.30">10.30</option>
-                                    <option value="11">11</option>
-                                    <option value="11.30">11.30</option>
-                                    <option value="12">12</option>
-                                    <option value="12.30">12.30</option>
-                                    <option value="13">13</option>
-                                    <option value="13.30">13.30</option>
-                                    <option value="14">14</option>
-                                    <option value="14.30">14.30</option>
-                                    <option value="15">15</option>
-                                    <option value="15.30">15.30</option>
-                                    <option value="16">16</option>
-                                    <option value="16.30">16.30</option>
-                                    <option value="17">17</option>
-                                    <option value="17.30">17.30</option>
-                                    <option value="18">18</option>
-                                    <option value="18.30">18.30</option>
-                                    <option value="19">19</option>
-                                    <option value="19.30">19.30</option>
-                                    <option value="20">20</option>
-                                    <option value="20.30">20.30</option>
-                                    <option value="21">21</option>
-
-
-                                </select>
-                            </div>
+                        <div id="contenidoM" class="modal-body">
+                            
+                            
+                           
 
 
                         </div>
@@ -355,6 +271,12 @@ include_once "../componets/enrutamientoSeguridad.php";
                 document.getElementById('idUsuario').value = v;
                 $('#mDisponibilidad').modal('show');
                
+            }
+            function asignarMateria(v){
+              var valor = v;
+               $('#contenidoM').load('../docente/asignarMateriaDocenteVista.php?id='+v);
+                //document.getElementById('idUsuario').value = v;
+                $('#modalAsignar').modal('show')
             }
         </script>
 
