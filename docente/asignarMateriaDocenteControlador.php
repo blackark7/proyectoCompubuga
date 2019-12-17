@@ -125,7 +125,9 @@ if ($dispo) {
 	include_once '../horario/horarioModelo.php';
 	$horario = new horarioModelo();
 	$horario -> insertar($id,$materia,$diaSemana,$horaInicio,$horaFin);
-	$_SESSION['dis'] = '<script type="text/javascript"> window.alert("El docente se asignó con exito."); </script> ';
+	$_SESSION['dis'] ='<script type="text/javascript"> window.alert("El docente se asignó con exito."); </script> ';
+
+                
 }else{
 	$_SESSION['dis'] = '<script type="text/javascript"> window.alert("El docente no se encuentra disponible en el horario seleccionado."); </script>';
 }
