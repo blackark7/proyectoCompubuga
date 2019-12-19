@@ -1,9 +1,6 @@
-
-
 <?php
 @session_start();
 include_once "../componets/enrutamientoSeguridad.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +31,10 @@ include_once "../componets/enrutamientoSeguridad.php";
         <!-- Page Wrapper -->
         <div id="wrapper">
 
-         
+            <!-- Sidebar menu despegable   -->
+            <?php
+            include_once '../componets/menu.php';
+            ?>
             <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
 
@@ -43,23 +43,23 @@ include_once "../componets/enrutamientoSeguridad.php";
                     <?php
                     include_once '../componets/navBar.php';
                     ?>
-                    
-                    
-                    <?php 
-                    $id = filter_input(INPUT_GET, 'id');
-include_once "docenteModelo.php";
-$docenteModelo = new docenteModelo();
-$result = $docenteModelo->mostrar($id);
-while ($fila = mysqli_fetch_array($result)) {
-
-    if ($fila != NULL) {
-
-        $foto = $fila['foto'];
-    }
-}
-                    
-                 ?>   
                     <div class="container">
+
+
+                    <?php
+                    $id = filter_input(INPUT_GET, 'id');
+                    include_once "docenteModelo.php";
+                    $docenteModelo = new docenteModelo();
+                    $result = $docenteModelo->mostrar($id);
+                    while ($fila = mysqli_fetch_array($result)) {
+
+                        if ($fila != NULL) {
+
+                            $foto = $fila['foto'];
+                        }
+                    }
+                    ?>   
+                  
                         <h1>Cambiar Foto</h1>
                         <html>
 
@@ -85,6 +85,30 @@ while ($fila = mysqli_fetch_array($result)) {
                             </form>
 
                     </div>
-                    </body>
-                    </html>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../js/demo/datatables-demo.js"></script>
+
+</html>
 
