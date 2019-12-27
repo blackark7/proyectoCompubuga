@@ -159,7 +159,7 @@ include_once "../componets/enrutamientoSeguridad.php";
                     <form method="post" action="materiasEliminarControlador.php" >
                         <input type="hidden" name="id" id="idUsuario">
                         <div class="modal-body">
-                            <h3>¿Esta seguro que desea eliminar el usuario?</h3>
+                            <h3>¿Esta seguro que desea eliminar la materia?</h3>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">SI</button>
