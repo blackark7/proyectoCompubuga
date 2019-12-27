@@ -111,6 +111,9 @@ include_once "../componets/enrutamientoSeguridad.php";
                 <a href="#" onclick="asignarDisponibilidad(' . $fila['id'] . ')" class="btn btn-warning  btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Asignar disponibilidad">
                 <i class="fas fa-clock"></i>
                 </a>
+                <a href="docentePDF.php?id=' . $fila['id'] . '" class="btn btn-secondary btn-circle btn-sm" data-toggle="tooltip" data-placement="bottom" title="Generar PDF">
+                <i class="fas fa-edit"></i>
+                </a>
                 </td>
                 </tr>';
                                                 }
