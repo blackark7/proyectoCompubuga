@@ -60,12 +60,14 @@
                                 <select class="form-control" name="carrera">
                                     
                                     <?php
-                                        include_once "../carrera/carrerasModelo.php";
-                                        $carreraModelo = new carrerasModelo();
-                                        $result = $carreraModelo->mostrarTodos();
-                                        while ($fila = mysqli_fetch_array($result)) {
-                                            if ($fila != NULL) {
-                                                echo  "<option value='".$fila['id']."'>".$fila['nombre']."</option>";
+                                            include_once '../carrera/carrerasModelo.php';
+                                            $carreraModelo = new carrerasModelo();
+                                            $result = $carreraModelo->mostrarTodos();
+                                            while ($fila = mysqli_fetch_array($result)) {
+
+                                                if ($fila != NULL) {
+                                                    
+                                                    echo '<option value="'.$fila['nombre'].'">'.$fila['nombre'].'</option>';
                                             }
                                         }
 
